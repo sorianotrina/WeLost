@@ -1,0 +1,1479 @@
+WindowManager:
+    name: "window_manager"
+    id: window_manager
+
+    MainScreen:
+    LoginScreen:
+    StudentScreen:
+    AdminScreen:
+    AdminLoginScreen:
+    FoundScreen:
+    UpdateLostScreen:
+    UpdateFoundScreen:
+    DashboardScreen:
+
+<MainScreen>:
+    name: "main_screen"
+    id: main_screen
+
+    FloatLayout:
+        Image:
+            source: "puppq.png"
+            opacity: 0.3
+            allow_stretch: True
+            keep_ratio: False
+            fit_mode: "cover"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(50)
+            padding: dp(50)
+
+            Image:
+                source: "images/welostlogo.png"
+                size_hint: None, None
+                size: dp(200), dp(200)
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+
+            MDLabel:
+                text: "Welcome to WeLost!"
+                font_style: "Display"
+                font_size: "100sp"
+                halign: "center"
+                valign: "middle"
+                pos_hint:{"center_x": 0.5,"center_y":0.20}
+                height: dp(18)
+                text_color: (255/255, 255/255, 255/255, 1)
+                size_hint_y: None
+
+            MDLabel:
+                text: "Lost and Found System"
+                font_style: "Headline"
+                font_size: "25sp"
+                halign: "center"
+                valign: "middle"
+                text_color: 1, 1, 1, 1
+                size_hint_y: None
+                height: dp(0)
+
+            MDButton:
+                style: "elevated"
+                height: "50dp"
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release:
+                    app.root.current = "login_screen"
+                    root.manager.transition.direction = "left"
+                theme_text_color: 'Custom'
+                md_bg_color: (1, 0, 0, 1)
+
+                MDButtonText:
+                    text: "Get Started"
+                    font_size: 20
+                    theme_text_color: "Custom"
+                    text_color: (0, 0, 0, 1)
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            Widget:
+                size_hint_y: None
+                height: 120
+
+<LoginScreen>:
+    name: "login_screen"
+    id: login_screen
+
+    FloatLayout:
+    Image:
+        source: "puppq.png"
+        opacity: 0.3
+        allow_stretch: True
+        keep_ratio: False
+        fit_mode: "cover"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(30)
+        padding: dp(40)
+
+        Image:
+            source: "puplogo.png"
+            size_hint: None, None
+            size: dp(150), dp(150)
+            pos_hint: {"center_x": 0.5}
+
+        MDLabel:
+            id: login_welcome
+            text: "Hi, PUPian!"
+            font_style: "Headline"
+            font_size: 100
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_color: (255/255, 255/255, 255/255, 1)
+
+        MDLabel:
+            id: login_welcome
+            text: "Please click or tap your destination."
+            font_size: 100
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 15
+            text_color: (255/255, 255/255, 255/255, 1)
+
+        MDButton:
+            style: "elevated"
+            height: "40dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_release:
+                app.root.current = "student_screen"
+                root.manager.transition.direction = "left"
+
+            MDButtonText:
+                text: "Student"
+                font_style: "Title"
+                font_size: 15
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        MDButton:
+            style: "elevated"
+            height: "40dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_release:
+                app.root.current = "admin_login_screen"
+                root.manager.transition.direction = "left"
+
+            MDButtonText:
+                text: "Admin"
+                font_style: "Title"
+                font_size: 15
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Widget:
+            size_hint_y: None
+            height: 5
+
+        MDLabel:
+            id: login_welcome
+            text: "By using this service, you understood and agree to the PUP Online Services Terms of Use and Privacy Statement."
+            font_size: 100
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 15
+            text_color: (255/255, 255/255, 255/255, 1)
+
+        Widget:
+            size_hint_y: None
+            height: 100
+
+
+<AdminLoginScreen>:
+    name: "admin_login_screen"
+    id: admin_login_screen
+
+    FloatLayout:
+        Image:
+            source: "puppq.png"
+            opacity: 0.3
+            allow_stretch: True
+            keep_ratio: False
+            fit_mode: "cover"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(30)
+            padding: dp(20)
+
+            Widget:
+                size_hint_y: None
+                height: dp(30)
+
+            Image:
+                source: "puplogo.png"
+                size_hint: None, None
+                size: dp(200), dp(200)
+                pos_hint: {"center_x": 0.5}
+
+            Widget:
+                size_hint_y: None
+                height: dp(10)
+
+            MDBoxLayout:
+                padding: [20, 60]
+                size_hint: 0.5, 0.3
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                spacing: 10
+                orientation: "vertical"
+                md_bg_color: (128/255, 0, 0, 0.2)
+                radius: [10, 10, 10, 10]
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: 10
+                    padding: [10, 10]
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+
+                        MDIconButton:
+                            icon: "arrow-left-bold"
+                            pos_hint: {"left": 1}
+                            theme_icon_color: "Custom"
+                            icon_color: (1, 1, 1, 1)
+                            on_release:
+                                app.root.current = "login_screen"
+                                root.manager.transition.direction = "right"
+
+                        MDLabel:
+                            id: admin_welcome
+                            text: "Admin Login"
+                            font_style: "Title"
+                            font_size: 50
+                            halign: 'center'
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_color: (255/255, 255/255, 255/255, 1)
+
+                        Widget:
+                            size_hint_x: None
+                            width: 30
+
+                    MDTextField:
+                        id: admin_email
+                        required: True
+                        mode: "filled"
+                        MDTextFieldHintText:
+                            text: "Admin Email"
+                        MDTextFieldTrailingIcon:
+                            icon: "email"
+
+                    MDTextField:
+                        id: admin_password
+                        mode: "filled"
+                        required: True
+                        password: True
+                        MDTextFieldHintText:
+                            text: "Password"
+                        MDTextFieldTrailingIcon:
+                            icon: "lock"
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    # Left Spacer
+                    Widget:
+                        size_hint_x: None
+                        width: dp(300)
+
+                    MDButton:
+                        size_hint: None, None
+                        size: dp(550), dp(40)
+                        theme_bg_color: "Custom"
+                        md_bg_color: (1, 1, 1, 1)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        on_release: app.validate_admin_login()
+                        text: "Login"
+                        icon: "login"
+
+                        MDButtonIcon:
+                            icon: "login"
+                            theme_icon_color: "Custom"
+                            icon_color: (0, 0, 0, 1)
+                            pos_hint: {"center_x": .15, "center_y": .5}
+
+                        MDButtonText:
+                            theme_text_color: "Custom"
+                            text_color: (0, 0, 0, 1)
+                            text: "Login"
+                            halign: "center"
+
+            Widget:
+                size_hint_y: None
+                height: dp(80)
+
+<StudentScreen>:
+    name: "student_screen"
+    id: student_screen
+
+    FloatLayout:
+        Image:
+            source: "puppq.png"
+            opacity: 0.3
+            allow_stretch: True
+            keep_ratio: False
+            fit_mode: "cover"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(30)
+            padding: dp(40)
+
+            Image:
+                source: "puplogo.png"
+                size_hint: None, None
+                size: dp(100), dp(100)
+                pos_hint: {"center_x": 0.5}
+
+            MDBoxLayout:
+                padding: [20, 60]
+                size_hint: 0.70, 0.80
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                spacing: 10
+                orientation: "vertical"
+                md_bg_color: (128/255, 0, 0, 0.2)
+                radius: [10, 10, 10, 10]
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: 10
+                    padding: [10, 10]
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+
+                        MDIconButton:
+                            icon: "arrow-left-bold"
+                            pos_hint: {"left": 1}
+                            theme_icon_color: "Custom"
+                            icon_color: (1, 1, 1, 1)
+                            on_release:
+                                app.root.current = "login_screen"
+                                root.manager.transition.direction = "right"
+
+                        MDLabel:
+                            id: student_welcome
+                            text: "Lost and Found System"
+                            font_style: "Title"
+                            font_size: 50
+                            halign: 'center'
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_color: (255/255, 255/255, 255/255, 1)
+
+                        Widget:
+                            size_hint_x: None
+                            width: 30
+
+                    MDTextField:
+                        id: student_number
+                        required: True
+                        mode: "filled"
+
+                        MDTextFieldHintText:
+                            text: "Student Number"
+                        MDTextFieldTrailingIcon:
+                            icon: "id-card"
+
+                    MDTextField:
+                        id: name
+                        mode: "filled"
+                        required: True
+
+                        MDTextFieldHintText:
+                            text: "Student Name"
+                        MDTextFieldTrailingIcon:
+                            icon: "account"
+
+                    MDTextField:
+                        id: description
+                        mode: "filled"
+                        required: True
+
+                        MDTextFieldHintText:
+                            text: "Item Description"
+                        MDTextFieldTrailingIcon:
+                            icon: "text"
+
+                    MDTextField:
+                        id: date
+                        mode: "filled"
+                        required: True
+                        on_focus: app.show_date_picker(self.focus)
+
+                        MDTextFieldHintText:
+                            text: "Date"
+                        MDTextFieldTrailingIcon:
+                            icon: "calendar"
+
+                    MDTextField:
+                        id: location
+                        mode: "filled"
+                        required: True
+
+                        MDTextFieldHintText:
+                            text: "Location Lost/Found"
+                        MDTextFieldTrailingIcon:
+                            icon: "map-marker"
+
+                    MDTextField:
+                        id: contact
+                        hint_text: "Contact Information"
+                        mode: "filled"
+                        required: True
+
+                        MDTextFieldHintText:
+                            text: "Contact Information"
+                        MDTextFieldTrailingIcon:
+                            icon: "phone"
+
+                    MDTextField:
+                        id: status
+                        hint_text: "Status"
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Status"
+                        MDTextFieldTrailingIcon:
+                            icon: "list-status"
+                            
+                Widget:
+                    size_hint_y: None
+                    height: dp(20)
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    # Left Spacer
+                    Widget:
+                        size_hint_x: None
+                        width: dp(320)
+
+                    MDButton:
+                        size_hint: None, None
+                        size: dp(550), dp(40)
+                        theme_bg_color: "Custom"
+                        md_bg_color: (1, 1, 1, 1)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        on_release: app.report_lost_item()
+
+                        MDButtonIcon:
+                            icon: "application-import"
+                            theme_icon_color: "Custom"
+                            icon_color: (0, 0, 0, 1)
+                            pos_hint: {"center_x": .15, "center_y": .5}
+
+                        MDButtonText:
+                            theme_text_color: "Custom"
+                            text_color: (0, 0, 0, 1)
+                            text: "Report Lost Item"
+                            halign: "center"
+
+                    # Spacer between buttons
+                    Widget:
+                        size_hint_x: None
+                        width: dp(10)
+
+                    MDButton:
+                        size_hint: None, None
+                        size: dp(550), dp(40)
+                        theme_bg_color: "Custom"
+                        md_bg_color: (1, 1, 1, 1)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        on_release: app.report_found_item()
+
+                        MDButtonIcon:
+                            icon: "content-save"
+                            theme_icon_color: "Custom"
+                            icon_color: (0, 0, 0, 1)
+                            pos_hint: {"center_x": .15, "center_y": .5}
+
+                        MDButtonText:
+                            theme_text_color: "Custom"
+                            text_color: (0, 0, 0, 1)
+                            text: "Report Found Item"
+                            halign: "center"
+
+                    # Right Spacer
+                    Widget:
+                        size_hint_x: None
+                        width: dp(10)
+
+
+<AdminScreen>:
+    name: "admin_screen"
+    id: admin_screen
+
+    FloatLayout:
+        Image:
+            source: "puppq.png"
+            opacity: 0.3
+            allow_stretch: True
+            keep_ratio: False
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(10)
+            padding: dp(20)
+            size_hint: 0.90, 0.95
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            md_bg_color: (128/255, 0, 0, 0.2)
+            radius: [10, 10, 10, 10]
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: dp(20)
+                padding: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(20)
+
+                    MDIconButton:
+                        icon: "home"
+                        theme_icon_color: "Custom"
+                        icon_color: (1, 1, 1, 1)
+                        on_release:
+                            app.root.current = "main_screen"
+                            root.manager.transition.direction = "right"
+
+                    MDButton:
+                        size_hint: None, None
+                        size: dp(200), dp(40)
+                        theme_bg_color: "Custom"
+                        md_bg_color: (128, 0, 0, .5)
+                        on_release:
+                            app.root.current = "dashboard_screen"
+                            root.manager.transition.direction = "left"
+
+
+                        MDButtonText:
+                            theme_text_color: "Custom"
+                            text_color: (1, 1, 1, 1)
+                            text: "Go to Dashboard"
+
+                    MDLabel:
+                        text: "Manage Lost Items"
+                        font_style: "Title"
+                        halign: "center"
+                        valign: "middle"
+                        theme_text_color: "Primary"
+                        text_color: (1, 1, 1, 1)
+                        padding: [0, dp(20)]
+
+                    Widget:
+                        size_hint_x: None
+                        width: dp(200)
+
+                    MDIconButton:
+                        icon: "logout"
+                        theme_icon_color: "Custom"
+                        icon_color: (1, 1, 1, 1)
+                        on_release:
+                            app.log_out()
+                            app.root.current = "admin_login_screen"
+
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDTextField:
+                        id: search_lost
+                        mode: "filled"
+                        hint_text: "Search Lost Items"
+                        size_hint_x: 0.8
+
+                        MDTextFieldHintText:
+                            text: "Search Lost Items"
+
+                    MDButton:
+                        size_hint_x: 0.2
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        theme_text_color: "Custom"
+                        text_color: (0, 0, 0, 1)
+                        on_release: app.search_value_lost(search_lost.text)
+
+                        MDButtonText:
+                            text: "Search"
+                            theme_text_color: "Custom"
+                            text_color: (0, 0, 0, 1)
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: dp(500)
+                    md_bg_color: (128/255, 0, 0, 0.2)
+
+                    MDScrollView:
+                        MDList:
+                            id: lost_item_list
+                            spacing: 10
+
+                MDButton:
+                    size_hint: None, None
+                    size: dp(200), dp(40)
+                    pos_hint: {"right": 1}
+                    on_release:
+                        app.root.current = "found_screen"
+                        root.manager.transition.direction = "right"
+
+                    MDButtonText:
+                        theme_text_color: "Custom"
+                        text_color: (0, 0, 0, 1)
+                        text: "Manage Found Items"
+
+
+<FoundScreen>:
+    name: "found_screen"
+    id: found_screen
+
+    FloatLayout:
+        Image:
+            source: "puppq.png"
+            opacity: 0.3
+            allow_stretch: True
+            keep_ratio: False
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(10)
+            padding: dp(20)
+            size_hint: 0.90, 0.95
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            md_bg_color: (128/255, 0, 0, 0.2)
+            radius: [10, 10, 10, 10]
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: dp(20)
+                padding: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(20)
+
+                    MDIconButton:
+                        icon: "home"
+                        theme_icon_color: "Custom"
+                        icon_color: (1, 1, 1, 1)
+                        on_release:
+                            app.root.current = "main_screen"
+                            root.manager.transition.direction = "right"
+
+                    MDButton:
+                        size_hint: None, None
+                        size: dp(200), dp(40)
+                        theme_bg_color: "Custom"
+                        md_bg_color: (128, 0, 0, .5)
+                        on_release:
+                            app.root.current = "dashboard_screen"
+                            root.manager.transition.direction = "left"
+
+
+                        MDButtonText:
+                            theme_text_color: "Custom"
+                            text_color: (1, 1, 1, 1)
+                            text: "Go to Dashboard"
+
+                    MDLabel:
+                        text: "Manage Found Items"
+                        font_style: "Title"
+                        halign: "center"
+                        valign: "middle"
+                        theme_text_color: "Primary"
+                        text_color: (1, 1, 1, 1)
+                        padding: [0, dp(20)]
+
+                    Widget:
+                        size_hint_x: None
+                        width: dp(200)
+
+                    MDIconButton:
+                        icon: "logout"
+                        theme_icon_color: "Custom"
+                        icon_color: (1, 1, 1, 1)
+                        on_release:
+                            app.log_out()
+                            app.root.current = "admin_login_screen"
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDTextField:
+                        id: search_found
+                        mode: "filled"
+                        hint_text: "Search Found Items"
+                        size_hint_x: 0.8
+
+                        MDTextFieldHintText:
+                            text: "Search Found Items"
+
+                    MDButton:
+                        size_hint_x: 0.2
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        theme_text_color: "Custom"
+                        text_color: (0, 0, 0, 1)
+                        on_release: app.search_value_found(search_found.text)
+
+                        MDButtonText:
+                            text: "Search"
+                            theme_text_color: "Custom"
+                            text_color: (0, 0, 0, 1)
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: dp(500)
+                    md_bg_color: (128/255, 0, 0, 0.2)
+
+                    MDScrollView:
+                        MDList:
+                            id: found_item_list
+                            spacing: 10
+
+                MDButton:
+                    size_hint: None, None
+                    size: dp(200), dp(40)
+                    pos_hint: {"right": 1}
+                    on_release:
+                        app.root.current = "admin_screen"
+                        root.manager.transition.direction = "left"
+
+                    MDButtonText:
+                        theme_text_color: "Custom"
+                        text_color: (0, 0, 0, 1)
+                        text: "Manage Lost Items"
+
+<UpdateLostScreen>
+    name: "update_lost_screen"
+    id: update_lost_screen
+
+    FloatLayout:
+        Image:
+            source: "puppq.png"
+            opacity: 0.3
+            allow_stretch: True
+            keep_ratio: False
+            fit_mode: "cover"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(20)
+            padding: dp(20)
+
+            Image:
+                source: "puplogo.png"
+                size_hint: None, None
+                size: dp(90), dp(90)
+                pos_hint: {"center_x": 0.5}
+
+            MDBoxLayout:
+                padding: [20, 60]
+                size_hint: 0.70, 0.60
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                spacing: 10
+                orientation: "vertical"
+                md_bg_color: (128/255, 0, 0, 0.2)
+                radius: [10, 10, 10, 10]
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: 10
+                    padding: [10, 10]
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+
+                        MDIconButton:
+                            icon: "arrow-left-bold"
+                            pos_hint: {"left": 1}
+                            theme_icon_color: "Custom"
+                            icon_color: (1, 1, 1, 1)
+                            on_release:
+                                app.root.current = "admin_screen"
+                                root.manager.transition.direction = "right"
+
+                        MDLabel:
+                            id: admin_edit
+                            text: "Status Update"
+                            font_style: "Title"
+                            font_size: 50
+                            halign: 'center'
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_color: (255/255, 255/255, 255/255, 1)
+
+                        Widget:
+                            size_hint_x: None
+                            width: 38
+
+                    MDTextField:
+                        id: u_lost_id
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Lost Item ID"
+
+                    MDTextField:
+                        id: u_lost_student_number
+                        readonly: True
+                        mode: "filled"
+
+                        MDTextFieldHintText:
+                            text: "Student Number"
+                        MDTextFieldTrailingIcon:
+                            icon: "id-card"
+
+                    MDTextField:
+                        id: u_lost_name
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Student Name"
+                        MDTextFieldTrailingIcon:
+                            icon: "account"
+
+                    MDTextField:
+                        id: u_lost_description
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Item Description"
+                        MDTextFieldTrailingIcon:
+                            icon: "text"
+
+                    MDTextField:
+                        id: u_lost_date
+                        mode: "filled"
+                        readonly: True
+                        on_focus: app.show_date_picker(self.focus)
+
+                        MDTextFieldHintText:
+                            text: "Date"
+                        MDTextFieldTrailingIcon:
+                            icon: "calendar"
+
+                    MDTextField:
+                        id: u_lost_location
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Location Lost/Found"
+                        MDTextFieldTrailingIcon:
+                            icon: "map-marker"
+
+                    MDTextField:
+                        id: u_lost_contact
+                        hint_text: "Contact Information"
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Contact Information"
+                        MDTextFieldTrailingIcon:
+                            icon: "phone"
+
+                    MDTextField:
+                        id: u_lost_status
+                        hint_text: "Status"
+                        mode: "filled"
+                        required: True
+
+                        MDTextFieldHintText:
+                            text: "Status"
+                        MDTextFieldTrailingIcon:
+                            icon: "list-status"
+
+                Widget:
+                    size_hint_y: None
+                    height: dp(10)
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    # Left Spacer
+                    Widget:
+                        size_hint_x: None
+                        width: dp(430)
+
+                    MDButton:
+                        size_hint: None, None
+                        size: dp(550), dp(40)
+                        theme_bg_color: "Custom"
+                        md_bg_color: (1, 1, 1, 1)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        on_release: app.update_status_lost()
+
+                        MDButtonIcon:
+                            icon: "update"
+                            theme_icon_color: "Custom"
+                            icon_color: (0, 0, 0, 1)
+                            pos_hint: {"center_x": .15, "center_y": .5}
+
+                        MDButtonText:
+                            theme_text_color: "Custom"
+                            text_color: (0, 0, 0, 1)
+                            text: "Update Status"
+                            halign: "center"
+
+
+<UpdateFoundScreen>
+    name: "update_found_screen"
+    id: update_found_screen
+
+    FloatLayout:
+        Image:
+            source: "puppq.png"
+            opacity: 0.3
+            allow_stretch: True
+            keep_ratio: False
+            fit_mode: "cover"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(20)
+            padding: dp(20)
+
+            Image:
+                source: "puplogo.png"
+                size_hint: None, None
+                size: dp(90), dp(90)
+                pos_hint: {"center_x": 0.5}
+
+            MDBoxLayout:
+                padding: [20, 60]
+                size_hint: 0.70, 0.60
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                spacing: 10
+                orientation: "vertical"
+                md_bg_color: (128/255, 0, 0, 0.2)
+                radius: [10, 10, 10, 10]
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: 10
+                    padding: [10, 10]
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+
+                        MDIconButton:
+                            icon: "arrow-left-bold"
+                            pos_hint: {"left": 1}
+                            theme_icon_color: "Custom"
+                            icon_color: (1, 1, 1, 1)
+                            on_release:
+                                app.root.current = "admin_screen"
+                                root.manager.transition.direction = "right"
+
+                        MDLabel:
+                            id: admin_edit
+                            text: "Status Update"
+                            font_style: "Title"
+                            font_size: 50
+                            halign: 'center'
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_color: (255/255, 255/255, 255/255, 1)
+
+                        Widget:
+                            size_hint_x: None
+                            width: 38
+
+                    MDTextField:
+                        id: u_found_id
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Found Item ID"
+
+                    MDTextField:
+                        id: u_found_student_number
+                        readonly: True
+                        mode: "filled"
+
+                        MDTextFieldHintText:
+                            text: "Student Number"
+                        MDTextFieldTrailingIcon:
+                            icon: "id-card"
+
+                    MDTextField:
+                        id: u_found_name
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Student Name"
+                        MDTextFieldTrailingIcon:
+                            icon: "account"
+
+                    MDTextField:
+                        id: u_found_description
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Item Description"
+                        MDTextFieldTrailingIcon:
+                            icon: "text"
+
+                    MDTextField:
+                        id: u_found_date
+                        mode: "filled"
+                        readonly: True
+                        on_focus: app.show_date_picker(self.focus)
+
+                        MDTextFieldHintText:
+                            text: "Date"
+                        MDTextFieldTrailingIcon:
+                            icon: "calendar"
+
+                    MDTextField:
+                        id: u_found_location
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Location Lost/Found"
+                        MDTextFieldTrailingIcon:
+                            icon: "map-marker"
+
+                    MDTextField:
+                        id: u_found_contact
+                        hint_text: "Contact Information"
+                        mode: "filled"
+                        readonly: True
+
+                        MDTextFieldHintText:
+                            text: "Contact Information"
+                        MDTextFieldTrailingIcon:
+                            icon: "phone"
+
+                    MDTextField:
+                        id: u_found_status
+                        hint_text: "Status"
+                        mode: "filled"
+                        required: True
+
+                        MDTextFieldHintText:
+                            text: "Status"
+                        MDTextFieldTrailingIcon:
+                            icon: "list-status"
+
+                Widget:
+                    size_hint_y: None
+                    height: dp(10)
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    # Left Spacer
+                    Widget:
+                        size_hint_x: None
+                        width: dp(430)
+
+                    MDButton:
+                        size_hint: None, None
+                        size: dp(550), dp(40)
+                        theme_bg_color: "Custom"
+                        md_bg_color: (1, 1, 1, 1)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        on_release: app.update_status_found()
+
+                        MDButtonIcon:
+                            icon: "update"
+                            theme_icon_color: "Custom"
+                            icon_color: (0, 0, 0, 1)
+                            pos_hint: {"center_x": .15, "center_y": .5}
+
+                        MDButtonText:
+                            theme_text_color: "Custom"
+                            text_color: (0, 0, 0, 1)
+                            text: "Update Status"
+                            halign: "center"
+
+<DashboardScreen>:
+    name: "dashboard_screen"
+    id: dashboard_screen
+
+    FloatLayout:
+        Image:
+            source: "puppq.png"
+            opacity: 0.3
+            allow_stretch: True
+            keep_ratio: False
+            fit_mode: "cover"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: dp(20)
+            padding: dp(20)
+
+            Image:
+                source: "puplogo.png"
+                size_hint: None, None
+                size: dp(90), dp(90)
+                pos_hint: {"center_x": 0.5}
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: dp(10)
+                padding: dp(20)
+                size_hint: 0.90, 0.95
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                md_bg_color: (128/255, 0, 0, 0.2)
+                radius: [10, 10, 10, 10]
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: dp(10)
+
+                    MDIconButton:
+                        icon: "arrow-left-bold"
+                        pos_hint: {"left": 1}
+                        theme_icon_color: "Custom"
+                        icon_color: (1, 1, 1, 1)
+                        on_release:
+                            app.root.current = "admin_screen"
+                            root.manager.transition.direction = "right"
+
+                    Widget:
+                        size_hint_x: None
+                        width: dp(20)
+
+                    MDButton:
+                        size_hint: None, None
+                        size: dp(200), dp(40)
+                        theme_bg_color: "Custom"
+                        md_bg_color: (128, 0, 0, .3)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        on_release: False
+
+                        MDButtonIcon:
+                            icon: "view-dashboard"
+                            theme_icon_color: "Custom"
+                            icon_color: (1, 1, 1, 1)
+
+                        MDButtonText:
+                            theme_text_color: "Custom"
+                            text_color: (1, 1, 1, 1)
+                            text: "Dashboard"
+
+                    Widget:
+                        size_hint_x: None
+                        width: dp(45)
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(20)
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        spacing: dp(20)
+                        size_hint_x: None
+                        width: dp(640)
+                        md_bg_color: (128/255, 0, 0, 0)
+
+                        MDLabel:
+                            text: "Reported Lost Items"
+                            font_style: "Title"
+                            halign: "center"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_color: (255/255, 255/255, 255/255, 1)
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: dp(10)
+                            size_hint: None, None
+                            width: self.minimum_width
+                            height: self.minimum_height
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                spacing: dp(10)
+                                padding: dp(10)
+                                size_hint: None, None
+                                width: dp(180)
+                                height: dp(150)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                radius: [10, 10, 10, 10]
+                                md_bg_color: (128/255, 0, 0, 1)
+
+                                MDIcon:
+                                    icon: "invoice-list-outline"
+                                    size_hint: None, None
+                                    size: dp(100), dp(100)
+                                    icon_color: (1, 1, 1, 1)
+                                    pos_hint: {"center_x": 0.5}
+
+                                MDLabel:
+                                    text: "Total Lost Items"
+                                    font_size: sp(15)
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                                MDLabel:
+                                    id: total_lost
+                                    text: "0"
+                                    font_style: "Headline"
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                spacing: dp(10)
+                                padding: dp(10)
+                                size_hint: None, None
+                                width: dp(180)
+                                height: dp(150)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                radius: [10, 10, 10, 10]
+                                md_bg_color: (128/255, 0, 0, 1)
+
+                                MDIcon:
+                                    icon: "briefcase-check-outline"
+                                    size_hint: None, None
+                                    size: dp(100), dp(100)
+                                    icon_color: (1, 1, 1, 1)
+                                    pos_hint: {"center_x": 0.5}
+
+                                MDLabel:
+                                    text: "Total Claimed"
+                                    font_size: sp(15)
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                                MDLabel:
+                                    id: total_claimed
+                                    text: "0"
+                                    font_style: "Headline"
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                spacing: dp(10)
+                                padding: dp(10)
+                                size_hint: None, None
+                                width: dp(180)
+                                height: dp(150)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                md_bg_color: (128/255, 0, 0, 1)
+                                radius: [10, 10, 10, 10]
+
+                                MDIcon:
+                                    icon: "briefcase-off-outline"
+                                    size_hint: None, None
+                                    size: dp(100), dp(100)
+                                    icon_color: (1, 1, 1, 1)
+                                    pos_hint: {"center_x": 0.5}
+
+                                MDLabel:
+                                    text: "Total Unclaimed"
+                                    font_size: sp(15)
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                                MDLabel:
+                                    id: total_unclaimed
+                                    text: "0"
+                                    font_style: "Headline"
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                        MDScrollView:
+                            MDList:
+                                id: lost_item_list_db
+                                spacing: 10
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        spacing: dp(20)
+                        size_hint_x: None
+                        width: dp(640)
+                        md_bg_color: (128/255, 0, 0, 0)
+
+                        MDLabel:
+                            text: "Reported Found Items"
+                            font_style: "Title"
+                            halign: "center"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_color: (255/255, 255/255, 255/255, 1)
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: dp(10)
+                            size_hint: None, None
+                            width: self.minimum_width
+                            height: self.minimum_height
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                spacing: dp(10)
+                                padding: dp(10)
+                                size_hint: None, None
+                                width: dp(180)
+                                height: dp(150)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                radius: [10, 10, 10, 10]
+                                md_bg_color: (128/255, 0, 0, 1)
+
+                                MDIcon:
+                                    icon: "clipboard-list-outline"
+                                    size_hint: None, None
+                                    size: dp(100), dp(100)
+                                    icon_color: (1, 1, 1, 1)
+                                    pos_hint: {"center_x": 0.5}
+
+                                MDLabel:
+                                    text: "Total Found Items"
+                                    font_size: sp(15)
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                                MDLabel:
+                                    id: total_found
+                                    text: "0"
+                                    font_style: "Headline"
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                spacing: dp(10)
+                                padding: dp(10)
+                                size_hint: None, None
+                                width: dp(180)
+                                height: dp(150)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                radius: [10, 10, 10, 10]
+                                md_bg_color: (128/255, 0, 0, 1)
+
+                                MDIcon:
+                                    icon: "clipboard-check-outline"
+                                    size_hint: None, None
+                                    size: dp(100), dp(100)
+                                    icon_color: (1, 1, 1, 1)
+                                    pos_hint: {"center_x": 0.5}
+
+                                MDLabel:
+                                    text: "Total Claimed"
+                                    font_size: sp(15)
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                                MDLabel:
+                                    id: total_claimed_f
+                                    text: "0"
+                                    font_style: "Headline"
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                spacing: dp(10)
+                                padding: dp(10)
+                                size_hint: None, None
+                                width: dp(180)
+                                height: dp(150)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                md_bg_color: (128/255, 0, 0, 1)
+                                radius: [10, 10, 10, 10]
+
+                                MDIcon:
+                                    icon: "clipboard-off-outline"
+                                    size_hint: None, None
+                                    size: dp(100), dp(100)
+                                    icon_color: (1, 1, 1, 1)
+                                    pos_hint: {"center_x": 0.5}
+
+                                MDLabel:
+                                    text: "Total Unclaimed"
+                                    font_size: sp(15)
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                                MDLabel:
+                                    id: total_unclaimed_f
+                                    text: "0"
+                                    font_style: "Headline"
+                                    halign: "center"
+                                    valign: "middle"
+                                    theme_text_color: "Custom"
+                                    text_color: (1, 1, 1, 1)
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+
+                        MDScrollView:
+                            MDList:
+                                id: found_item_list_db
+                                spacing: 10
